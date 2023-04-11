@@ -2,7 +2,7 @@
  * @Author: TQtong 2733707740@qq.com
  * @Date: 2023-04-11 09:18:53
  * @LastEditors: TQtong 2733707740@qq.com
- * @LastEditTime: 2023-04-11 19:08:39
+ * @LastEditTime: 2023-04-11 20:55:53
  * @FilePath: \echarts-map-demo\src\components\EchartsMap.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -44,6 +44,7 @@ onMounted(async () => {
         },
         viewControl: {
           projection: 'perspective',
+          center: [0, 0, 0],
           distance: 100, // 地图视角 控制初始大小
           rotateSensitivity: 0, // 旋转
           zoomSensitivity: 0, // 缩放
@@ -109,12 +110,12 @@ onMounted(async () => {
         },
         coordinateSystem: 'geo3D',
         // boxDepth: 60, // 地图倾斜度
-        regionHeight: 4, // 地图厚度
+        regionHeight: 2, // 地图厚度
         center: ['50%', '50%'],
         shading: 'realistic',
         realisticMaterial: {
-          detailTexture: '/1.png', // 纹理贴图
-          textureTiling: 1, // 纹理平铺，1是拉伸，数字表示纹理平铺次数
+          detailTexture: '/4.png', // 纹理贴图
+          textureTiling: 3, // 纹理平铺，1是拉伸，数字表示纹理平铺次数
           roughness: 1, // 材质粗糙度，0完全光滑，1完全粗糙
           metalness: 0, // 0材质是非金属 ，1金属
           roughnessAdjust: 1
@@ -215,14 +216,14 @@ onMounted(async () => {
       //   silent: true // 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
       // }
     ],
-    visualMap: {
-      min: 0,
-      max: 50000,
-      calculable: true,
-      inRange: {
-        color: ['#f2c31a', '#e94e1b']
-      }
-    },
+    // visualMap: {
+    //   min: 0,
+    //   max: 50000,
+    //   calculable: false,
+    //   inRange: {
+    //     color: ['#f2c31a', '#e94e1b']
+    //   }
+    // },
     series: [
       {
         name: 'map3D', // series名称
@@ -245,13 +246,14 @@ onMounted(async () => {
         },
         itemStyle: {
           // 三维地理坐标系组件 中三维图形的视觉属性，包括颜色，透明度，描边等。
-          color: '#506e99', // 地图板块的颜色
-          opacity: 1, // 图形的不透明度 [ default: 1 ]
+          color: 'rgba(98,136,255,0.6)', // 地图板块的颜色
+          opacity: 0.2, // 图形的不透明度 [ default: 1 ]
           borderWidth: 4, // (地图板块间的分隔线)图形描边的宽度。加上描边后可以清晰的区分每个区域
-          borderColor: '#66ddf0' // 图形描边的颜色。[ default: #333 ]
+          borderColor: '#6be4f5' // 图形描边的颜色。[ default: #333 ]
         },
         viewControl: {
           projection: 'perspective',
+          center: [0, 2, 0],
           distance: 100, // 地图视角 控制初始大小
           rotateSensitivity: 0, // 旋转
           zoomSensitivity: 0, // 缩放
@@ -262,7 +264,22 @@ onMounted(async () => {
           minBeta: -80, // 左右旋转的最小 beta 值。即视角能旋转到达最左的角度。[ default: -80 ]
           maxBeta: 80 // 左右旋转的最大 beta 值。即视角能旋转到达最右的
         },
-        silent: true // 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+        silent: true, // 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+        light: {
+          // 光照阴影
+          main: {
+            color: '#000', // 光照颜色
+            intensity: 1, // 光照强度
+            // shadowQuality: 'high', //阴影亮度
+            shadow: true, // 是否显示阴影
+            shadowQuality: 'medium', // 阴影质量 ultra //阴影亮度
+            alpha: 55,
+            beta: 10
+          },
+          ambient: {
+            intensity: 0.7
+          }
+        }
         //     data: [
         //   {name: '浦口区', value: 19899},
         //   {name: '建邺区', value: 23134},
@@ -280,5 +297,6 @@ onMounted(async () => {
 #myChartMap {
   width: 100%;
   height: 100%;
+  background-color: #192b63;
 }
 </style>
