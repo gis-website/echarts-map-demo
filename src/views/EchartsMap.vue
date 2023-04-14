@@ -2,7 +2,7 @@
  * @Author: TQtong 2733707740@qq.com
  * @Date: 2023-04-11 09:18:53
  * @LastEditors: TQtong 2733707740@qq.com
- * @LastEditTime: 2023-04-11 20:55:53
+ * @LastEditTime: 2023-04-14 16:24:09
  * @FilePath: \echarts-map-demo\src\components\EchartsMap.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -46,8 +46,8 @@ onMounted(async () => {
           projection: 'perspective',
           center: [0, 0, 0],
           distance: 100, // 地图视角 控制初始大小
-          rotateSensitivity: 0, // 旋转
-          zoomSensitivity: 0, // 缩放
+          rotateSensitivity: 1, // 旋转
+          zoomSensitivity: 1, // 缩放
           alpha: 30, // 视角绕 x 轴，即上下旋转的角度。配合 beta 可以控制视角的方向。[ default: 40 ]
           beta: -80, // 视角绕 y 轴，即左右旋转的角度。[ default: 0 ]
           minAlpha: 5, // 上下旋转的最小 alpha 值。即视角能旋转到达最上面的角度。[ default: 5 ]
@@ -255,8 +255,8 @@ onMounted(async () => {
           projection: 'perspective',
           center: [0, 2, 0],
           distance: 100, // 地图视角 控制初始大小
-          rotateSensitivity: 0, // 旋转
-          zoomSensitivity: 0, // 缩放
+          rotateSensitivity: 1, // 旋转
+          zoomSensitivity: 1, // 缩放
           alpha: 30, // 视角绕 x 轴，即上下旋转的角度。配合 beta 可以控制视角的方向。[ default: 40 ]
           beta: -80, // 视角绕 y 轴，即左右旋转的角度。[ default: 0 ]
           minAlpha: 5, // 上下旋转的最小 alpha 值。即视角能旋转到达最上面的角度。[ default: 5 ]
